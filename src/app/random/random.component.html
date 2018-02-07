@@ -1,0 +1,222 @@
+<div class="container-fluid container-fluid-padding">
+
+  <div class="row justify-content-center" style="margin-top: 10vh;">
+
+    <div class="col-md-3 bg-light sidebar" [@goals]="0">
+
+      <br>
+      <div class="row" style="margin-top: -15px; margin-bottom: 2vh">
+        <ul class="nav nav-tabs nav-pills text-info nav-justified" id="myTab" role="tablist" style="width: 100%">
+          <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" (click)="resetData(algh.value)">Normal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" (click)="resetData(algh2.value)">Distinctive</a>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="algorithmSelect">Algorithm</label>
+                <select name="" id="algorithmSelect2" class="custom-select" [disabled]="firstTime" #algh2 (change)="setNewInput(algh2.value)">
+                  <option value="1" selected>FCFS</option>
+                  <option value="2">SSTF</option>
+                  <option value="3">SCAN</option>
+                  <option value="4">CSCAN</option>
+                  <option value="5">LOOK</option>
+                  <option value="6">CLOOK</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="dataInput">out</label>
+                <input type="text" id="out2" class="form-control"  [value]="out" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="FC">First Cylinder</label>
+                <input type="number" id="FC2" class="form-control" [disabled]="firstTime" #FC2>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="dataInput">Last Cylinder</label>
+                <input type="number" id="LC2" class="form-control" [disabled]="firstTime" #LC2>
+              </div>
+            </div>
+
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="FC">Beginning of Interval</label>
+                <input type="number" id="BI2" class="form-control" [disabled]="firstTime" #BI2>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="dataInput">End of Interval</label>
+                <input type="number" id="EI2" class="form-control" [disabled]="firstTime" #EI2>
+              </div>
+            </div>
+
+          </div>
+          <div class="row justify-content-center">
+            <div class="col" *ngIf="hasToUp">
+              <div class="form-group">
+                <label for="dir">Direction</label>
+                <select name="" id="dir2" class="custom-select" [disabled]="firstTime" #dir (change)="setDir(dir2.value)" >
+                  <option value="1" selected>select</option>
+                  <option value="2">ToUp</option>
+                  <option value="3">ToDown</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="dataInput">Number of Data</label>
+                <input type="number" id="num2" class="form-control" #num2>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="row justify-content-center">
+            <div class="col text-center">
+              <button class="btn btn-info" (click)="addData2(algh2.value,FC2.value,LC2.value,BI2.value,EI2.value,num2.value)">Add Data</button>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="algorithmSelect">Algorithm</label>
+                <select name="" id="algorithmSelect" class="custom-select" [disabled]="firstTime" #algh (change)="setNewInput(algh.value)">
+                  <option value="1" selected>FCFS</option>
+                  <option value="2">SSTF</option>
+                  <option value="3">SCAN</option>
+                  <option value="4">CSCAN</option>
+                  <option value="5">LOOK</option>
+                  <option value="6">CLOOK</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="dataInput">Standard Deviation</label>
+                <input type="number" id="dataInput" class="form-control"  #SD>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="FC">First Cylinder</label>
+                <input type="number" id="FC" class="form-control" [disabled]="firstTime" #FC>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="dataInput">Last Cylinder</label>
+                <input type="number" id="LC" class="form-control" [disabled]="firstTime" #LC>
+              </div>
+            </div>
+
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="FC">Beginning of Interval</label>
+                <input type="number" id="BI" class="form-control" [disabled]="firstTime" #BI>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="dataInput">End of Interval</label>
+                <input type="number" id="EI" class="form-control" [disabled]="firstTime" #EI>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="dataInput">Average</label>
+                <input type="number" id="Avg" class="form-control" [disabled]="firstTime" #Avg>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="dataInput">out</label>
+                <input type="text" id="out" class="form-control"  [value]="out" readonly>
+              </div>
+            </div>
+
+          </div>
+          <div class="row justify-content-center">
+            <div class="col" *ngIf="hasToUp">
+              <div class="form-group">
+                <label for="dir">Direction</label>
+                <select name="" id="dir" class="custom-select" [disabled]="firstTime" #dir (change)="setDir(dir.value)" >
+                  <option value="1" selected>select</option>
+                  <option value="2">ToUp</option>
+                  <option value="3">ToDown</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="dataInput">Number of Data</label>
+                <input type="number" id="num" class="form-control" #num>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col text-center">
+              <button class="btn btn-info" (click)="addData1(algh.value,SD.value,FC.value,LC.value,BI.value,EI.value,num.value,Avg.value)">Add Data</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header bg-info text-white">
+              Data Added
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3" *ngFor="let request of requests">
+                  <h6>{{ request }}</h6>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="col-md-8 bg-light chartSide">
+
+      <div *ngIf="chart">
+        <canvas id="canvas">{{ chart }}</canvas>
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,36 @@
+.phaseButton{
+  height: 40vh;
+  background-size: cover;
+  text-align: center;
+  padding-top: 16vh;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 5px 46px black;
+  -moz-box-shadow: 10px 5px 46px black;
+  box-shadow: 10px 5px 46px black;
+}
+.phaseButton:hover{
+  border-radius: 20px;
+  filter: grayscale(100%);
+}
+.margin-row{
+  margin-top: 17vh;
+}
+#phase1{
+  background-image:url("../../assets/images/button1.jpg") ;
+}
+#phase2{
+  background-image:url("../../assets/images/button2.jpg") ;
+}
+.button-text{
+  color: whitesmoke;
+  font-size: 3em;
+  text-shadow: 5px 10px 6px black;
+}
+
+a:hover{
+  text-decoration: none;
+}
+.name{
+  color: whitesmoke;
+  text-shadow: 5px 10px 16px black;
+}

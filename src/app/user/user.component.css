@@ -1,0 +1,24 @@
+.sidebar{
+  min-height: 80vh;
+  margin-right: 5vh;
+  padding-bottom: 2vh;
+}
+.bg-light{
+  border-radius: 15px;
+}
+.container-fluid-padding{
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.chartSide{
+  padding: 3vh;
+  padding-top: 9vh;
+}
+.back{
+  color: whitesmoke;
+}
+.sample-button{
+  box-shadow: 5px 10px 6px black;
+  text-align: center;
+  color: whitesmoke;
+}

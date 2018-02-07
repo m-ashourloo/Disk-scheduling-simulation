@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+body{
+  background: url("assets/images/back1.jpg");
+  background-color: rgba(5,5,5,.5);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  /*overflow: hidden;*/
+}
+a:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* You can add global styles to this file, and also import other style files */

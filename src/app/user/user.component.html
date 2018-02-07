@@ -1,0 +1,108 @@
+<div class="container-fluid container-fluid-padding">
+
+  <div class="row justify-content-center" style="margin-top: 10vh;">
+
+    <div class="col-md-3 bg-light sidebar" [@goals]="0">
+
+        <br>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="algorithmSelect">Algorithm</label>
+              <select name="" id="algorithmSelect" class="custom-select" [disabled]="firstTime" #algh (change)="setNewInput(algh.value)">
+                <option value="1" selected>FCFS</option>
+                <option value="2">SSTF</option>
+                <option value="3">SCAN</option>
+                <option value="4">CSCAN</option>
+                <option value="5">LOOK</option>
+                <option value="6">CLOOK</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="dataInput">Add Read Request</label>
+              <input type="number" id="dataInput" class="form-control" placeholder="data"  #box>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="FC">First Cylinder</label>
+              <input type="number" id="FC" class="form-control" [disabled]="firstTime" #FC>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="dataInput">Last Cylinder</label>
+              <input type="number" id="LC" class="form-control" [disabled]="firstTime" #LC>
+            </div>
+          </div>
+
+        </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="dataInput">Head</label>
+            <input type="number" id="Head" class="form-control" [disabled]="firstTime" #Head>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="dataInput">out</label>
+            <input type="text" id="out" class="form-control"  [value]="out" readonly>
+          </div>
+        </div>
+
+      </div>
+        <div class="row justify-content-center">
+          <div class="col" *ngIf="hasToUp">
+            <div class="form-group">
+              <label for="dir">Direction</label>
+              <select name="" id="dir" class="custom-select" [disabled]="firstTime" #dir (change)="setDir(dir.value)" >
+                <option value="1" selected>select</option>
+                <option value="2">ToUp</option>
+                <option value="3">ToDown</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col text-center">
+            <button class="btn btn-info" (click)="addData(algh.value,box.value,FC.value,LC.value,Head.value)">Add Data</button>
+          </div>
+
+        </div>
+      <br>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header bg-info text-white">
+                Data Added
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-3" *ngFor="let request of requests">
+                    <h6>{{ request }}</h6>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+    </div>
+    <div class="col-md-8 bg-light chartSide">
+
+      <div *ngIf="chart">
+        <canvas id="canvas">{{ chart }}</canvas>
+      </div>
+
+    </div>
+
+  </div>
+</div>
